@@ -21,15 +21,16 @@ class CurrencyListInteractor {
         api.getLatestExchangeRates(
             params: ["base": "EUR"],
             success: { entity in
-            var currencyList = [CurrencyModel]()
-            currencyList.append(CurrencyModel(name: entity.base, rate: 1))
-            entity.rates.forEach { arg in
-                let (key, value) = arg
-                if let rate = value as? Double {
-                    currencyList.append(CurrencyModel(name: key, rate: rate))
+                var currencyList = [CurrencyModel]()
+                currencyList.append(CurrencyModel(code: .EUR, rate: 1, amount: 0.0))
+                entity.rates.forEach { arg in
+                    let (key, value) = arg
+                    if let code = CurrencyCode(rawValue: key),
+                        let rate = value as? Double {
+                        currencyList.append(CurrencyModel(code: code, rate: rate, amount: 0.0))
+                    }
                 }
-            }
-            success(currencyList)
+                success(currencyList)
         }, failure: failure)
     }
 }

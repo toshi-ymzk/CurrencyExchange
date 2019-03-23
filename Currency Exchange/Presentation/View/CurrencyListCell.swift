@@ -11,9 +11,9 @@ import UIKit
 class CurrencyListCell: UIView {
     
     @IBOutlet var iconView: UIImageView!
+    @IBOutlet var codeLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var fullNameLabel: UILabel!
-    @IBOutlet var inputTextField: UITextField!
+    @IBOutlet var amountTextField: UITextField!
     
     static let cellHeight: CGFloat = 100
     
@@ -25,6 +25,14 @@ class CurrencyListCell: UIView {
     }
     
     public func layout(currency: CurrencyModel) {
-        nameLabel.text = currency.name
+        iconView.image = currency.code.getNationalFlag()
+        codeLabel.text = currency.code.rawValue
+        nameLabel.text = currency.code.getCurrencyName()
+        var text = "\(currency.amount)"
+        // Cast to Int if the amount is integer
+        if currency.amount.truncatingRemainder(dividingBy: 1.0) == 0.0 {
+            text = "\(Int(currency.amount))"
+        }
+        amountTextField.text = text
     }
 }
