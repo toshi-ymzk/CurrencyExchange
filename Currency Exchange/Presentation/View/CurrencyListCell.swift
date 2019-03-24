@@ -30,7 +30,7 @@ class CurrencyListCell: UIView {
         nameLabel.text = currency.code.getCurrencyName()
         var text = "\(currency.amount)"
         // Cast to Int if the amount is integer
-        if currency.amount.truncatingRemainder(dividingBy: 1.0) == 0.0 {
+        if currency.amount.truncatingRemainder(dividingBy: 1.0) == 0.0, currency.amount <= Double(Int.max) {
             text = "\(Int(currency.amount))"
         }
         amountTextField.text = text
