@@ -10,8 +10,8 @@ import Foundation
 
 extension Double {
     
-    func truncate(_ decimalPlaces: Double) -> Double {
-        let n = pow(10.0, decimalPlaces)
+    func truncate(_ decimalPlaces: Int) -> Double {
+        let n = pow(10.0, Double(decimalPlaces))
         return floor(self * n) / n
     }
 }

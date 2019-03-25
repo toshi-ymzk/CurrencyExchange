@@ -28,7 +28,7 @@ class CurrencyListInteractor {
                     let (key, value) = arg
                     if let code = CurrencyCode(rawValue: key),
                         let rate = value as? Double {
-                        let amount = (baseAmount * rate).truncate(2)
+                        let amount = (baseAmount * rate).truncate(CurrencyModel.maxDicimalPlaces)
                         currencyList.append(CurrencyModel(code: code, rate: rate, amount: amount))
                     }
                 }

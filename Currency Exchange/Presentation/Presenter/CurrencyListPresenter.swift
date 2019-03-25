@@ -22,7 +22,7 @@ class CurrencyListPresenter {
         didSet {
             for (i, currency) in currencyList.enumerated() {
                 if i == selectedIndex { continue }
-                currency.amount = (baseAmount * currency.rate).truncate(2)
+                currency.amount = (baseAmount * currency.rate).truncate(CurrencyModel.maxDicimalPlaces)
             }
         }
     }
@@ -64,7 +64,7 @@ class CurrencyListPresenter {
             let rate = rates[i]
             currency.rate = rate
             if i == selectedIndex { continue }
-            currency.amount = (baseAmount * rate).truncate(2)
+            currency.amount = (baseAmount * rate).truncate(CurrencyModel.maxDicimalPlaces)
         }
     }
     
@@ -75,6 +75,6 @@ class CurrencyListPresenter {
             return
         }
         currency.amount = amount
-        baseAmount = (amount / currency.rate).truncate(2)
+        baseAmount = (amount / currency.rate).truncate(CurrencyModel.maxDicimalPlaces)
     }
 }

@@ -17,6 +17,7 @@
 		99AA839C22446DBF004F8811 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA839B22446DBF004F8811 /* Bundle+.swift */; };
 		99AA839E22446E45004F8811 /* CurrencyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99AA839D22446E45004F8811 /* CurrencyListCell.xib */; };
 		99AA83A022446E65004F8811 /* CurrencyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA839F22446E65004F8811 /* CurrencyListCell.swift */; };
+		99AABAA9224911A90009300A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABAA8224911A90009300A /* UIColor+.swift */; };
 		99C3944422448FA0004B6BC9 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3944322448FA0004B6BC9 /* CurrencyModel.swift */; };
 		99C39446224490D4004B6BC9 /* RevolutAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C39445224490D4004B6BC9 /* RevolutAPI.swift */; };
 		99C39448224496B1004B6BC9 /* ExchangeRatesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C39447224496B1004B6BC9 /* ExchangeRatesEntity.swift */; };
@@ -66,6 +67,7 @@
 		99AA839B22446DBF004F8811 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		99AA839D22446E45004F8811 /* CurrencyListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyListCell.xib; sourceTree = "<group>"; };
 		99AA839F22446E65004F8811 /* CurrencyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListCell.swift; sourceTree = "<group>"; };
+		99AABAA8224911A90009300A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		99C3944322448FA0004B6BC9 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		99C39445224490D4004B6BC9 /* RevolutAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutAPI.swift; sourceTree = "<group>"; };
 		99C39447224496B1004B6BC9 /* ExchangeRatesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesEntity.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				998674A42246203B001C4358 /* Array+.swift */,
 				99AA839B22446DBF004F8811 /* Bundle+.swift */,
 				99D2476A2247BC76001FFBD4 /* Double+.swift */,
+				99AABAA8224911A90009300A /* UIColor+.swift */,
 				99C394592244CCF6004B6BC9 /* UIScreen+.swift */,
 				99AA839922446C41004F8811 /* UIView+.swift */,
 			);
@@ -551,6 +554,7 @@
 				99C3944422448FA0004B6BC9 /* CurrencyModel.swift in Sources */,
 				99C394552244B0E0004B6BC9 /* RevolutAPIStub.swift in Sources */,
 				99AA839C22446DBF004F8811 /* Bundle+.swift in Sources */,
+				99AABAA9224911A90009300A /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

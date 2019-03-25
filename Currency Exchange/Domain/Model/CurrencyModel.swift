@@ -14,6 +14,9 @@ class CurrencyModel {
     var rate: Double
     var amount: Double
     
+    static let maxDicimalPlaces = 3
+    static let maxDigit = 9
+    
     init(code: CurrencyCode, rate: Double, amount: Double) {
         self.code = code
         self.rate = rate

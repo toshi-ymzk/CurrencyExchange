@@ -10,8 +10,6 @@ import UIKit
 
 class CurrencyListViewController: UIViewController {
     
-    var useStubData = true
-    
     lazy var presenter = CurrencyListRouter(view: self).inject()
     
     @IBOutlet private var scrollView: UIScrollView!
@@ -33,24 +31,54 @@ class CurrencyListViewController: UIViewController {
             if let cell = Bundle.loadNib(CurrencyListCell.self) {
                 cell.frame.size.width = UIScreen.width
                 cell.frame.origin.y = y
+                cell.tag = i
                 cell.layout(currency: currency)
                 cell.amountTextField.delegate = self
                 cell.amountTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
-                cell.amountTextField.tag = i
+                cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectCell)))
                 scrollView.addSubview(cell)
                 listCells.append(cell)
                 y += cell.bounds.height
             }
         }
         scrollView.contentSize = CGSize(width: UIScreen.width, height: y)
+        replaceCells(selectedIndex: 0)
     }
     
     public func updateListCells() {
-        for (i, cell) in self.listCells.enumerated() {
+        for (i, cell) in listCells.enumerated() {
+            if i == presenter.selectedIndex { continue }
             if let currency = self.presenter.currencyList[safe: i] {
                 cell.layout(currency: currency)
             }
         }
+    }
+    
+    @objc private func didSelectCell(_ gesture: UITapGestureRecognizer) {
+        guard let cell = gesture.view as? CurrencyListCell else {
+            return
+        }
+        replaceCells(selectedIndex: cell.tag)
+    }
+    
+    private func replaceCells(selectedIndex: Int) {
+        presenter.selectedIndex = selectedIndex
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            for (i, cell) in self.listCells.enumerated() {
+                if i == selectedIndex {
+                    cell.frame.origin.y = 0
+                    cell.textFieldBorder.backgroundColor = UIColor.hexColor(0x0D7AFF)
+                    self.scrollView.bringSubviewToFront(cell)
+                } else {
+                    let index = i < selectedIndex ? i + 1 : i
+                    cell.frame.origin.y = cell.bounds.height * CGFloat(index)
+                    cell.textFieldBorder.backgroundColor = UIColor.hexColor(0xEFEFF4)
+                }
+            }
+            self.scrollView.setContentOffset(.zero, animated: false)
+        }, completion: { _ in
+            self.listCells[safe: selectedIndex]?.amountTextField.becomeFirstResponder()
+        })
     }
     
     @objc private func resignTextField() {
@@ -82,12 +110,14 @@ extension CurrencyListViewController: UITextFieldDelegate {
             text.remove(at: text.startIndex)
         }
         textField.text = text
-        presenter.didInputAmount(amount: text, index: textField.tag)
+        let index = textField.superview?.tag ?? 0
+        presenter.didInputAmount(amount: text, index: index)
         updateListCells()
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        // TODO: Move cell
+        let index = textField.superview?.tag ?? 0
+        replaceCells(selectedIndex: index)
         return true
     }
     
@@ -97,7 +127,13 @@ extension CurrencyListViewController: UITextFieldDelegate {
         }
         let isPoint = string == "."
         let hasPoint = text.contains(".")
+        let dicimalPlaces = hasPoint ? text.split(separator: ".")[safe: 1]?.count ?? 0 : 0
+        let digit = hasPoint ? text.split(separator: ".")[0].count : text.count
         if isPoint, hasPoint {
+            return false
+        } else if !string.isEmpty, dicimalPlaces >= CurrencyModel.maxDicimalPlaces {
+            return false
+        } else if !string.isEmpty, digit >= CurrencyModel.maxDigit, !isPoint, !hasPoint {
             return false
         }
         return true

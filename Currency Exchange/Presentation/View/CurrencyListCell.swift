@@ -14,8 +14,11 @@ class CurrencyListCell: UIView {
     @IBOutlet var codeLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var amountTextField: UITextField!
+    @IBOutlet var textFieldBorder: UIView!
     
     static let cellHeight: CGFloat = 100
+    static let maxDicimalPlaces = 3
+    static let maxDigit = 9
     
     override func awakeFromNib() {
         super.awakeFromNib()

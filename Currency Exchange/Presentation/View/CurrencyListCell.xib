@@ -30,19 +30,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pound Sterling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDf-e6-HJJ">
-                    <rect key="frame" x="90" y="51.666666666666664" width="102" height="16.999999999999993"/>
+                    <rect key="frame" x="90" y="53.666666666666664" width="102" height="16.999999999999993"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="LSA-d3-VIe">
-                    <rect key="frame" x="332" y="32" width="23" height="36"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="LSA-d3-VIe">
+                    <rect key="frame" x="336" y="20.666666666666671" width="19" height="29"/>
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" keyboardAppearance="alert"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-b9-Exo">
-                    <rect key="frame" x="331" y="68" width="25" height="1"/>
+                    <rect key="frame" x="335" y="49.666666666666664" width="21" height="1"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="aVF-Jw-2k3"/>
@@ -53,7 +53,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ceU-zs-kg3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6kN-n0-i9Z"/>
-                <constraint firstItem="LSA-d3-VIe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="EbU-Az-m2B"/>
+                <constraint firstItem="LSA-d3-VIe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HES-B8-19I" secondAttribute="trailing" constant="20" id="B4t-bs-lmu"/>
                 <constraint firstItem="HES-B8-19I" firstAttribute="leading" secondItem="ceU-zs-kg3" secondAttribute="trailing" constant="20" id="FEL-Qc-dJl"/>
                 <constraint firstItem="NDf-e6-HJJ" firstAttribute="leading" secondItem="HES-B8-19I" secondAttribute="leading" id="JEr-0P-Dic"/>
                 <constraint firstItem="jEb-b9-Exo" firstAttribute="bottom" secondItem="LSA-d3-VIe" secondAttribute="bottom" constant="1" id="KFs-lN-Say"/>
@@ -61,8 +61,9 @@
                 <constraint firstItem="jEb-b9-Exo" firstAttribute="trailing" secondItem="LSA-d3-VIe" secondAttribute="trailing" constant="1" id="VKn-gW-Bps"/>
                 <constraint firstItem="HES-B8-19I" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-10" id="WSi-cU-Sex"/>
                 <constraint firstItem="ceU-zs-kg3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Xze-Bf-hSX"/>
+                <constraint firstItem="LSA-d3-VIe" firstAttribute="bottom" secondItem="HES-B8-19I" secondAttribute="bottom" id="jFO-lX-pCb"/>
                 <constraint firstItem="jEb-b9-Exo" firstAttribute="leading" secondItem="LSA-d3-VIe" secondAttribute="leading" constant="-1" id="k8W-RW-pMH"/>
-                <constraint firstItem="NDf-e6-HJJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="10" id="nta-jx-0oS"/>
+                <constraint firstItem="NDf-e6-HJJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="12" id="nta-jx-0oS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -71,6 +72,7 @@
                 <outlet property="codeLabel" destination="HES-B8-19I" id="KPo-en-gMR"/>
                 <outlet property="iconView" destination="ceU-zs-kg3" id="2EL-8H-Ewc"/>
                 <outlet property="nameLabel" destination="NDf-e6-HJJ" id="gtN-aJ-DRY"/>
+                <outlet property="textFieldBorder" destination="jEb-b9-Exo" id="2Ob-Nw-CFz"/>
             </connections>
         </view>
     </objects>
