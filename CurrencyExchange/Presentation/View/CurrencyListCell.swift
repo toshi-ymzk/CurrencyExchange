@@ -44,7 +44,7 @@ class CurrencyListCell: UIView {
         if currency.amount.truncatingRemainder(dividingBy: 1.0) == 0.0, currency.amount <= Double(Int.max) {
             text = "\(Int(currency.amount))"
         }
-        amountTextField.text = text
+        amountTextField.text = text.addDecimalComma()
         amountTextField.textColor = currency.amount == 0 ? UIColor.lightGray : UIColor.hexColor(0x111111)
     }
     

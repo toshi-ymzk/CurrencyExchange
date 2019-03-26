@@ -143,13 +143,13 @@ extension CurrencyListViewController: UIScrollViewDelegate {
 extension CurrencyListViewController: UITextFieldDelegate {
     
     @objc func editingChanged(_ textField: UITextField) {
-        guard var text = textField.text else {
+        guard var text = textField.text?.replacingOccurrences(of: ",", with: "") else {
             return
         }
         text = presenter.didChangeText(&text)
         let amount = Double(text) ?? 0
         let index = textField.superview?.tag ?? 0
-        textField.text = text
+        textField.text = text.addDecimalComma()
         textField.textColor = amount == 0 ? UIColor.lightGray : UIColor.hexColor(0x111111)
         presenter.setBaseAmount(amount: amount, index: index)
         updateListCells()
@@ -162,7 +162,7 @@ extension CurrencyListViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else {
+        guard let text = textField.text?.replacingOccurrences(of: ",", with: "") else {
             return false
         }
         return presenter.shouldChangeText(text, replacement: string)

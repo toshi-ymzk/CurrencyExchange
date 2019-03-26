@@ -15,7 +15,7 @@ class CurrencyModel {
     var amount: Double
     
     static let maxDicimalPlaces = 3
-    static let maxDigit = 9
+    static let maxDigit = 8
     
     init(code: CurrencyCode, rate: Double, amount: Double) {
         self.code = code
