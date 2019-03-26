@@ -68,12 +68,9 @@ class CurrencyListPresenter {
         }
     }
     
-    public func didInputAmount(amount: String, index: Int) {
+    public func didInputAmount(amount: Double, index: Int) {
         selectedIndex = index
-        guard let currency = currencyList[safe: index],
-            let amount = Double(amount) else {
-            return
-        }
+        guard let currency = currencyList[safe: index] else { return }
         currency.amount = amount
         baseAmount = (amount / currency.rate).truncate(CurrencyModel.maxDicimalPlaces)
     }

@@ -13,12 +13,19 @@ class CurrencyListCell: UIView {
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var codeLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var symbolLabel: UILabel!
     @IBOutlet var amountTextField: UITextField!
     @IBOutlet var textFieldBorder: UIView!
     
     static let cellHeight: CGFloat = 100
     static let maxDicimalPlaces = 3
     static let maxDigit = 9
+    
+    var isSelected = false {
+        didSet {
+            textFieldBorder.backgroundColor = isSelected ? UIColor.hexColor(0x0D7AFF) : UIColor.hexColor(0xEFEFF4)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,11 +38,37 @@ class CurrencyListCell: UIView {
         iconView.image = currency.code.getNationalFlag()
         codeLabel.text = currency.code.rawValue
         nameLabel.text = currency.code.getCurrencyName()
+        symbolLabel.text = currency.code.getSymbol()
         var text = "\(currency.amount)"
         // Cast to Int if the amount is integer
         if currency.amount.truncatingRemainder(dividingBy: 1.0) == 0.0, currency.amount <= Double(Int.max) {
             text = "\(Int(currency.amount))"
         }
         amountTextField.text = text
+        amountTextField.textColor = currency.amount == 0 ? UIColor.lightGray : UIColor.hexColor(0x111111)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if isSelected { return }
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
+        })
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        if isSelected { return }
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.transform = .identity
+        })
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        if isSelected { return }
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.transform = .identity
+        })
     }
 }

@@ -12,7 +12,10 @@ class CurrencyListViewController: UIViewController {
     
     lazy var presenter = CurrencyListRouter(view: self).inject()
     
+    @IBOutlet private var headerView: UIView!
+    @IBOutlet private var headerViewHeight: NSLayoutConstraint!
     @IBOutlet private var scrollView: UIScrollView!
+    @IBOutlet private var blockView: UIView! // View to block user interaction while animating
     
     private var listCells = [CurrencyListCell]()
     
@@ -21,7 +24,12 @@ class CurrencyListViewController: UIViewController {
         
         presenter.viewDidLoad()
         
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resignTextField)))
+        setupViews()
+    }
+    
+    private func setupViews() {
+        headerViewHeight.constant = CurrencyListCell.cellHeight + 1 // Border height
+        scrollView.delaysContentTouches = false
     }
     
     public func setupListCells() {
@@ -62,22 +70,39 @@ class CurrencyListViewController: UIViewController {
     }
     
     private func replaceCells(selectedIndex: Int) {
+        guard let previousCell = self.listCells[safe: presenter.selectedIndex],
+            let selectedCell = self.listCells[safe: selectedIndex] else {
+            return
+        }
         presenter.selectedIndex = selectedIndex
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+        if previousCell.amountTextField.isFirstResponder {
+            previousCell.amountTextField.resignFirstResponder()
+        }
+        
+        previousCell.frame.origin.y = previousCell.convert(previousCell.bounds, to: self.scrollView).origin.y
+        previousCell.removeFromSuperview()
+        scrollView.addSubview(previousCell)
+        
+        selectedCell.frame.origin.y = selectedCell.convert(selectedCell.bounds, to: self.headerView).origin.y
+        selectedCell.transform = .identity
+        selectedCell.removeFromSuperview()
+        self.headerView.addSubview(selectedCell)
+        
+        blockView.isHidden = false
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.85, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             for (i, cell) in self.listCells.enumerated() {
                 if i == selectedIndex {
-                    cell.frame.origin.y = 0
-                    cell.textFieldBorder.backgroundColor = UIColor.hexColor(0x0D7AFF)
-                    self.scrollView.bringSubviewToFront(cell)
+                    selectedCell.frame.origin.y = 0
+                    selectedCell.isSelected = true
                 } else {
                     let index = i < selectedIndex ? i + 1 : i
                     cell.frame.origin.y = cell.bounds.height * CGFloat(index)
-                    cell.textFieldBorder.backgroundColor = UIColor.hexColor(0xEFEFF4)
+                    cell.isSelected = false
                 }
             }
-            self.scrollView.setContentOffset(.zero, animated: false)
         }, completion: { _ in
-            self.listCells[safe: selectedIndex]?.amountTextField.becomeFirstResponder()
+            self.blockView.isHidden = true
+            selectedCell.amountTextField.becomeFirstResponder()
         })
     }
     
@@ -109,9 +134,11 @@ extension CurrencyListViewController: UITextFieldDelegate {
         } else if text.count > 1, !hasPoint, let firstChar = text.first, firstChar == "0" {
             text.remove(at: text.startIndex)
         }
+        let amount = Double(text) ?? 0
         textField.text = text
+        textField.textColor = amount == 0 ? UIColor.lightGray : UIColor.hexColor(0x111111)
         let index = textField.superview?.tag ?? 0
-        presenter.didInputAmount(amount: text, index: index)
+        presenter.didInputAmount(amount: amount, index: index)
         updateListCells()
     }
     
