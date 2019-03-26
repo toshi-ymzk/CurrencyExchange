@@ -16,3 +16,38 @@ extension UIView {
         }
     }
 }
+
+@IBDesignable
+class DesignableView: UIView {
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return self.layer.borderWidth
+        }
+        set {
+            self.layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            if let borderColor = self.layer.borderColor {
+                return UIColor(cgColor: borderColor)
+            } else {
+                return nil
+            }
+        }
+        set {
+            self.layer.borderColor = newValue?.cgColor
+        }
+    }
+}

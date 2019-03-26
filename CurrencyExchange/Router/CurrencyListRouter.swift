@@ -10,7 +10,7 @@ import UIKit
 
 class CurrencyListRouter {
     
-    var useStubData = true
+    var useStubData = false
     
     weak var view: CurrencyListViewController?
     

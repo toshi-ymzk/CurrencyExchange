@@ -35,7 +35,7 @@ class CurrencyListPresenter {
         self.router = router
     }
     
-    func viewDidLoad() {
+    func loadData() {
         getCurrencyList()
     }
     
@@ -45,7 +45,9 @@ class CurrencyListPresenter {
             s.currencyList = res
             s.view?.setupListCells()
             s.timer = Timer.scheduledTimer(timeInterval: 1.0, target: s, selector: #selector(s.getCurrencyRates), userInfo: nil, repeats: true)
-        }) { (err) in
+        }) { [weak self] err in
+            // Show reload button in case initial loading fails
+            self?.view?.showErrorView()
         }
     }
     
@@ -54,7 +56,8 @@ class CurrencyListPresenter {
             guard let s = self else { return }
             s.updateCurrencyRates(rates: res)
             s.view?.updateListCells()
-        }) { (err) in
+        }) { _ in
+            // Do nothing for update failure
         }
     }
     

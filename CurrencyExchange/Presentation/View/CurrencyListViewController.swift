@@ -16,23 +16,35 @@ class CurrencyListViewController: UIViewController {
     @IBOutlet private var headerViewHeight: NSLayoutConstraint!
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var blockView: UIView! // View to block user interaction while animating
+    @IBOutlet private var errorView: UIView!
+    @IBOutlet private var reloadButton: UIView!
     
     private var listCells = [CurrencyListCell]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.viewDidLoad()
-        
         setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        presenter.loadData()
+    }
+    
+    @objc func reload() {
+        errorView.alpha = 0
+        presenter.loadData()
     }
     
     private func setupViews() {
         headerViewHeight.constant = CurrencyListCell.cellHeight + 1 // Border height
         scrollView.delaysContentTouches = false
+        reloadButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reload)))
     }
     
-    public func setupListCells() {
+    func setupListCells() {
         scrollView.removeAllSubviews()
         var y: CGFloat = 0
         for (i, currency) in presenter.currencyList.enumerated() {
@@ -53,13 +65,19 @@ class CurrencyListViewController: UIViewController {
         replaceCells(selectedIndex: 0)
     }
     
-    public func updateListCells() {
+    func updateListCells() {
         for (i, cell) in listCells.enumerated() {
             if i == presenter.selectedIndex { continue }
             if let currency = self.presenter.currencyList[safe: i] {
                 cell.layout(currency: currency)
             }
         }
+    }
+    
+    func showErrorView() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.errorView.alpha = 1
+        })
     }
     
     @objc private func didSelectCell(_ gesture: UITapGestureRecognizer) {

@@ -13,7 +13,7 @@
         <!--Currency List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CurrencyListViewController" customModule="Currency_Exchange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CurrencyListViewController" customModule="CurrencyExchange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +43,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Vay-eE-wwJ" secondAttribute="bottom" id="y00-pr-ALe"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5X-AI-nC2">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5X-AI-nC2" userLabel="Navigation View">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ8-Mi-Viq">
@@ -60,16 +60,67 @@
                                     <constraint firstAttribute="height" constant="44" id="PJC-KN-fvS"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIc-rU-t0s">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn4-Wz-WUV">
+                                        <rect key="frame" x="92.666666666666671" y="285.33333333333331" width="189.66666666666663" height="19.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wAO-gY-dLH" customClass="DesignableView" customModule="CurrencyExchange" customModuleProvider="target">
+                                        <rect key="frame" x="137.66666666666666" y="325" width="100" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-jR-oSP">
+                                                <rect key="frame" x="23.333333333333346" y="10.333333333333313" width="53.333333333333343" height="19.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0.050980392159999999" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="8K5-jR-oSP" firstAttribute="centerX" secondItem="wAO-gY-dLH" secondAttribute="centerX" id="44q-5I-VJB"/>
+                                            <constraint firstAttribute="width" constant="100" id="Wls-By-Rwg"/>
+                                            <constraint firstAttribute="height" constant="40" id="rkJ-XH-tJL"/>
+                                            <constraint firstItem="8K5-jR-oSP" firstAttribute="centerY" secondItem="wAO-gY-dLH" secondAttribute="centerY" id="sz9-K4-WQL"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.050980392159999999" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Jn4-Wz-WUV" firstAttribute="centerX" secondItem="KIc-rU-t0s" secondAttribute="centerX" id="5xX-EZ-rz6"/>
+                                    <constraint firstItem="wAO-gY-dLH" firstAttribute="centerY" secondItem="KIc-rU-t0s" secondAttribute="centerY" id="Bls-QZ-b6h"/>
+                                    <constraint firstItem="wAO-gY-dLH" firstAttribute="centerX" secondItem="KIc-rU-t0s" secondAttribute="centerX" id="ZxH-cx-o41"/>
+                                    <constraint firstItem="Jn4-Wz-WUV" firstAttribute="centerY" secondItem="KIc-rU-t0s" secondAttribute="centerY" constant="-50" id="sfa-qQ-nyf"/>
+                                </constraints>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2i-GY-YbJ">
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="KIc-rU-t0s" firstAttribute="top" secondItem="u5X-AI-nC2" secondAttribute="bottom" id="Egn-K2-tjc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V2i-GY-YbJ" secondAttribute="trailing" id="J9a-hK-Vwj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KIc-rU-t0s" secondAttribute="trailing" id="NO1-81-JMQ"/>
                             <constraint firstItem="u5X-AI-nC2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="P6W-cK-3wP"/>
+                            <constraint firstItem="KIc-rU-t0s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pfi-7j-qTx"/>
                             <constraint firstItem="4fO-92-LeX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RR7-Xa-QdV"/>
                             <constraint firstItem="aRC-Zn-8EA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RWZ-Sh-2p5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KIc-rU-t0s" secondAttribute="bottom" id="TGe-uW-tc1"/>
                             <constraint firstAttribute="bottom" secondItem="V2i-GY-YbJ" secondAttribute="bottom" id="Ukf-kI-Vdn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aRC-Zn-8EA" secondAttribute="trailing" id="XUz-vp-4so"/>
                             <constraint firstItem="u5X-AI-nC2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aLM-06-DvT"/>
@@ -85,8 +136,10 @@
                     </view>
                     <connections>
                         <outlet property="blockView" destination="V2i-GY-YbJ" id="Ui3-Y6-lEj"/>
+                        <outlet property="errorView" destination="KIc-rU-t0s" id="Tcc-dD-Fx7"/>
                         <outlet property="headerView" destination="aRC-Zn-8EA" id="NlC-t2-lah"/>
                         <outlet property="headerViewHeight" destination="4IT-fq-HeC" id="uqY-uw-YKh"/>
+                        <outlet property="reloadButton" destination="wAO-gY-dLH" id="ZWU-S6-IAx"/>
                         <outlet property="scrollView" destination="4fO-92-LeX" id="rVi-zN-uZV"/>
                     </connections>
                 </viewController>
