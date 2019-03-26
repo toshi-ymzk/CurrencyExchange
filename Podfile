@@ -1,20 +1,20 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
 
-target 'Currency Exchange' do
+target 'CurrencyExchange' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Currency Exchange
+  # Pods for CurrencyExchange
   pod 'Alamofire'
   pod 'ObjectMapper'
 
-  target 'Currency ExchangeTests' do
+  target 'CurrencyExchangeTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'Currency ExchangeUITests' do
+  target 'CurrencyExchangeUITests' do
     inherit! :search_paths
     # Pods for testing
   end
