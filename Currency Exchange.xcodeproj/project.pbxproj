@@ -18,6 +18,10 @@
 		99AA839E22446E45004F8811 /* CurrencyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99AA839D22446E45004F8811 /* CurrencyListCell.xib */; };
 		99AA83A022446E65004F8811 /* CurrencyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA839F22446E65004F8811 /* CurrencyListCell.swift */; };
 		99AABAA9224911A90009300A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABAA8224911A90009300A /* UIColor+.swift */; };
+		99AABAAC2249C2AE0009300A /* DoubleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABAAB2249C2AE0009300A /* DoubleTests.swift */; };
+		99AABAAE2249C55D0009300A /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABAAD2249C55D0009300A /* UIColorTests.swift */; };
+		99AABAB22249C8DD0009300A /* CurrencyListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABAB12249C8DD0009300A /* CurrencyListInteractorTests.swift */; };
+		99AABAB62249E2FD0009300A /* CurrencyListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AABAB52249E2FD0009300A /* CurrencyListPresenterTests.swift */; };
 		99C3944422448FA0004B6BC9 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C3944322448FA0004B6BC9 /* CurrencyModel.swift */; };
 		99C39446224490D4004B6BC9 /* RevolutAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C39445224490D4004B6BC9 /* RevolutAPI.swift */; };
 		99C39448224496B1004B6BC9 /* ExchangeRatesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C39447224496B1004B6BC9 /* ExchangeRatesEntity.swift */; };
@@ -68,6 +72,10 @@
 		99AA839D22446E45004F8811 /* CurrencyListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyListCell.xib; sourceTree = "<group>"; };
 		99AA839F22446E65004F8811 /* CurrencyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListCell.swift; sourceTree = "<group>"; };
 		99AABAA8224911A90009300A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		99AABAAB2249C2AE0009300A /* DoubleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTests.swift; sourceTree = "<group>"; };
+		99AABAAD2249C55D0009300A /* UIColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
+		99AABAB12249C8DD0009300A /* CurrencyListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractorTests.swift; sourceTree = "<group>"; };
+		99AABAB52249E2FD0009300A /* CurrencyListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenterTests.swift; sourceTree = "<group>"; };
 		99C3944322448FA0004B6BC9 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		99C39445224490D4004B6BC9 /* RevolutAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutAPI.swift; sourceTree = "<group>"; };
 		99C39447224496B1004B6BC9 /* ExchangeRatesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesEntity.swift; sourceTree = "<group>"; };
@@ -187,6 +195,47 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		99AABAAA2249C29A0009300A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				99AABAAB2249C2AE0009300A /* DoubleTests.swift */,
+				99AABAAD2249C55D0009300A /* UIColorTests.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		99AABAAF2249C8BC0009300A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				99AABAB02249C8CB0009300A /* Interactor */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		99AABAB02249C8CB0009300A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				99AABAB12249C8DD0009300A /* CurrencyListInteractorTests.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		99AABAB32249E2BE0009300A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				99AABAB42249E2CE0009300A /* Presenter */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		99AABAB42249E2CE0009300A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				99AABAB52249E2FD0009300A /* CurrencyListPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		99C3944222448F8A004B6BC9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +342,9 @@
 			isa = PBXGroup;
 			children = (
 				99D1BFE02243BA72002CD9AE /* Currency_ExchangeTests.swift */,
+				99AABAB32249E2BE0009300A /* Presentation */,
+				99AABAAF2249C8BC0009300A /* Domain */,
+				99AABAAA2249C29A0009300A /* Extension */,
 				99D1BFE22243BA72002CD9AE /* Info.plist */,
 			);
 			path = "Currency ExchangeTests";
@@ -562,7 +614,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99AABAAC2249C2AE0009300A /* DoubleTests.swift in Sources */,
 				99D1BFE12243BA72002CD9AE /* Currency_ExchangeTests.swift in Sources */,
+				99AABAAE2249C55D0009300A /* UIColorTests.swift in Sources */,
+				99AABAB22249C8DD0009300A /* CurrencyListInteractorTests.swift in Sources */,
+				99AABAB62249E2FD0009300A /* CurrencyListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +833,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Currency-ExchangeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = toshihiro.yamazaki.currency.exchange.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -799,7 +855,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Currency-ExchangeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = toshihiro.yamazaki.currency.exchange.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -820,7 +876,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Currency-ExchangeUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = toshihiro.yamazaki.currency.exchange.ui.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -841,7 +897,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Currency-ExchangeUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = toshihiro.yamazaki.currency.exchange.ui.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

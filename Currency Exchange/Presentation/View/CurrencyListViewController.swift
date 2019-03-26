@@ -128,17 +128,12 @@ extension CurrencyListViewController: UITextFieldDelegate {
         guard var text = textField.text else {
             return
         }
-        let hasPoint = text.contains(".")
-        if text.isEmpty {
-            text = "0"
-        } else if text.count > 1, !hasPoint, let firstChar = text.first, firstChar == "0" {
-            text.remove(at: text.startIndex)
-        }
+        text = presenter.didChangeText(&text)
         let amount = Double(text) ?? 0
+        let index = textField.superview?.tag ?? 0
         textField.text = text
         textField.textColor = amount == 0 ? UIColor.lightGray : UIColor.hexColor(0x111111)
-        let index = textField.superview?.tag ?? 0
-        presenter.didInputAmount(amount: amount, index: index)
+        presenter.setBaseAmount(amount: amount, index: index)
         updateListCells()
     }
     
@@ -152,17 +147,6 @@ extension CurrencyListViewController: UITextFieldDelegate {
         guard let text = textField.text else {
             return false
         }
-        let isPoint = string == "."
-        let hasPoint = text.contains(".")
-        let dicimalPlaces = hasPoint ? text.split(separator: ".")[safe: 1]?.count ?? 0 : 0
-        let digit = hasPoint ? text.split(separator: ".")[0].count : text.count
-        if isPoint, hasPoint {
-            return false
-        } else if !string.isEmpty, dicimalPlaces >= CurrencyModel.maxDicimalPlaces {
-            return false
-        } else if !string.isEmpty, digit >= CurrencyModel.maxDigit, !isPoint, !hasPoint {
-            return false
-        }
-        return true
+        return presenter.shouldChangeText(text, replacement: string)
     }
 }

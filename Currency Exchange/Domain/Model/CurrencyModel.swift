@@ -24,6 +24,18 @@ class CurrencyModel {
     }
 }
 
+extension CurrencyModel: Equatable {
+    
+    static func == (lhs: CurrencyModel, rhs: CurrencyModel) -> Bool {
+        guard lhs.code == rhs.code,
+            lhs.rate == rhs.rate,
+            lhs.amount == rhs.amount else {
+                return false
+        }
+        return true
+    }
+}
+
 enum CurrencyCode: String {
     case EUR
     case AUD

@@ -14,7 +14,7 @@ class CurrencyListRouter {
     
     weak var view: CurrencyListViewController?
     
-    init(view: CurrencyListViewController) {
+    init(view: CurrencyListViewController?) {
         self.view = view
     }
     
