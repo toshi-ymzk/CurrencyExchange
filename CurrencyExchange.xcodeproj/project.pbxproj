@@ -29,8 +29,6 @@
 		99C394522244AD41004B6BC9 /* RevolutAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C394512244AD40004B6BC9 /* RevolutAPIRouter.swift */; };
 		99C394552244B0E0004B6BC9 /* RevolutAPIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C394542244B0E0004B6BC9 /* RevolutAPIStub.swift */; };
 		99C3945A2244CCF6004B6BC9 /* UIScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C394592244CCF6004B6BC9 /* UIScreen+.swift */; };
-		99D1213B224A67AC000F9B90 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1213A224A67AC000F9B90 /* String+.swift */; };
-		99D1213D224A6C71000F9B90 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1213C224A6C71000F9B90 /* StringTests.swift */; };
 		99D1BFCC2243BA6F002CD9AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1BFCB2243BA6F002CD9AE /* AppDelegate.swift */; };
 		99D1BFCE2243BA6F002CD9AE /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1BFCD2243BA6F002CD9AE /* CurrencyListViewController.swift */; };
 		99D1BFD12243BA6F002CD9AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99D1BFCF2243BA6F002CD9AE /* Main.storyboard */; };
@@ -39,6 +37,8 @@
 		99D1BFE12243BA72002CD9AE /* CurrencyExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1BFE02243BA72002CD9AE /* CurrencyExchangeTests.swift */; };
 		99D1BFEC2243BA72002CD9AE /* CurrencyExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D1BFEB2243BA72002CD9AE /* CurrencyExchangeUITests.swift */; };
 		99D2476B2247BC76001FFBD4 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2476A2247BC76001FFBD4 /* Double+.swift */; };
+		99EF9A7D2274732100EDC5A8 /* NumberFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EF9A7C2274732100EDC5A8 /* NumberFormatter+.swift */; };
+		99EF9A7F227475E200EDC5A8 /* NumberFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EF9A7E227475E200EDC5A8 /* NumberFormatterTests.swift */; };
 		CAAFAD5FE2FA5E04307DCF63 /* Pods_CurrencyExchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A73F967F1A2C1770D0997C /* Pods_CurrencyExchangeUITests.framework */; };
 		D31FDE3B476E9A35315C2895 /* Pods_CurrencyExchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BABDF034B2ED67BCFDA3433 /* Pods_CurrencyExchange.framework */; };
 /* End PBXBuildFile section */
@@ -90,8 +90,6 @@
 		99C394512244AD40004B6BC9 /* RevolutAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutAPIRouter.swift; sourceTree = "<group>"; };
 		99C394542244B0E0004B6BC9 /* RevolutAPIStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutAPIStub.swift; sourceTree = "<group>"; };
 		99C394592244CCF6004B6BC9 /* UIScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+.swift"; sourceTree = "<group>"; };
-		99D1213A224A67AC000F9B90 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		99D1213C224A6C71000F9B90 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		99D1BFC82243BA6F002CD9AE /* CurrencyExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D1BFCB2243BA6F002CD9AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99D1BFCD2243BA6F002CD9AE /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +104,8 @@
 		99D1BFEB2243BA72002CD9AE /* CurrencyExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeUITests.swift; sourceTree = "<group>"; };
 		99D1BFED2243BA72002CD9AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99D2476A2247BC76001FFBD4 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		99EF9A7C2274732100EDC5A8 /* NumberFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+.swift"; sourceTree = "<group>"; };
+		99EF9A7E227475E200EDC5A8 /* NumberFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterTests.swift; sourceTree = "<group>"; };
 		B1FA267F979DE8FB430EA012 /* Pods_Currency_ExchangeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_ExchangeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0D3CCB5BE1BA41CA3D7DDC /* Pods-CurrencyExchangeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchangeUITests.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyExchangeUITests/Pods-CurrencyExchangeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7F50AA209A273047A7BA369 /* Pods-CurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				998674A42246203B001C4358 /* Array+.swift */,
 				99AA839B22446DBF004F8811 /* Bundle+.swift */,
 				99D2476A2247BC76001FFBD4 /* Double+.swift */,
-				99D1213A224A67AC000F9B90 /* String+.swift */,
+				99EF9A7C2274732100EDC5A8 /* NumberFormatter+.swift */,
 				99AABAA8224911A90009300A /* UIColor+.swift */,
 				99C394592244CCF6004B6BC9 /* UIScreen+.swift */,
 				99AA839922446C41004F8811 /* UIView+.swift */,
@@ -210,7 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				99AABAAB2249C2AE0009300A /* DoubleTests.swift */,
-				99D1213C224A6C71000F9B90 /* StringTests.swift */,
+				99EF9A7E227475E200EDC5A8 /* NumberFormatterTests.swift */,
 				99AABAAD2249C55D0009300A /* UIColorTests.swift */,
 			);
 			path = Extension;
@@ -606,7 +606,6 @@
 				99C3944A22449757004B6BC9 /* CurrencyListInteractor.swift in Sources */,
 				99D1BFCE2243BA6F002CD9AE /* CurrencyListViewController.swift in Sources */,
 				998674A52246203B001C4358 /* Array+.swift in Sources */,
-				99D1213B224A67AC000F9B90 /* String+.swift in Sources */,
 				99C39448224496B1004B6BC9 /* ExchangeRatesEntity.swift in Sources */,
 				999C755F22445AB100F18D06 /* CurrencyListPresenter.swift in Sources */,
 				99D2476B2247BC76001FFBD4 /* Double+.swift in Sources */,
@@ -618,6 +617,7 @@
 				99AA83A022446E65004F8811 /* CurrencyListCell.swift in Sources */,
 				99C3944422448FA0004B6BC9 /* CurrencyModel.swift in Sources */,
 				99C394552244B0E0004B6BC9 /* RevolutAPIStub.swift in Sources */,
+				99EF9A7D2274732100EDC5A8 /* NumberFormatter+.swift in Sources */,
 				99AA839C22446DBF004F8811 /* Bundle+.swift in Sources */,
 				99AABAA9224911A90009300A /* UIColor+.swift in Sources */,
 			);
@@ -630,8 +630,8 @@
 				99AABAAC2249C2AE0009300A /* DoubleTests.swift in Sources */,
 				99D1BFE12243BA72002CD9AE /* CurrencyExchangeTests.swift in Sources */,
 				99AABAAE2249C55D0009300A /* UIColorTests.swift in Sources */,
+				99EF9A7F227475E200EDC5A8 /* NumberFormatterTests.swift in Sources */,
 				99AABAB22249C8DD0009300A /* CurrencyListInteractorTests.swift in Sources */,
-				99D1213D224A6C71000F9B90 /* StringTests.swift in Sources */,
 				99AABAB62249E2FD0009300A /* CurrencyListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

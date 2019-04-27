@@ -89,7 +89,7 @@ class CurrencyListPresenterTests: XCTestCase {
             // Success cases
             ("0", "."),
             ("0.01", "1"),
-            ("10000000", "1"),
+            ("1000000", "1"),
             
             // False cases
             ("0.1", "."),

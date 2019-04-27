@@ -1,17 +1,20 @@
 //
-//  StringTests.swift
+//  NumberFormatterTests.swift
 //  CurrencyExchangeTests
 //
-//  Created by Toshihiro Nojima on 2019/03/26.
+//  Created by Toshihiro Nojima on 2019/04/27.
 //  Copyright © 2019 Toshihiro Yamazaki. All rights reserved.
 //
+
+import Foundation
 
 import XCTest
 @testable import CurrencyExchange
 
-class StringTests: XCTestCase {
+class NumberFormatterTests: XCTestCase {
     
     func testAddDecimalComma() {
+        let formatter = NumberFormatter()
         let cases: [String?] = [
             "0",
             "0.",
@@ -23,7 +26,7 @@ class StringTests: XCTestCase {
             "1,000",
             "a"
         ]
-        let result = cases.map { $0?.addDecimalComma() }
+        let result = cases.map { formatter.addDecimalComma(str: $0) }
         let forecasts: [String?] = [
             "0",
             "0.",

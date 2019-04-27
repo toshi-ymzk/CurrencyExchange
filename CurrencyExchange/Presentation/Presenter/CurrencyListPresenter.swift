@@ -41,10 +41,9 @@ class CurrencyListPresenter {
     
     func getCurrencyList() {
         interactor.getCurrencyList(baseAmount: baseAmount, success: { [weak self] res in
-            guard let s = self else { return }
-            s.currencyList = res
-            s.view?.setupListCells()
-            s.timer = Timer.scheduledTimer(timeInterval: 1.0, target: s, selector: #selector(s.getCurrencyRates), userInfo: nil, repeats: true)
+            self?.currencyList = res
+            self?.view?.setupListCells()
+            self?.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self as Any, selector: #selector(self?.getCurrencyRates), userInfo: nil, repeats: true)
         }) { [weak self] err in
             // Show reload button in case initial loading fails
             self?.view?.showErrorView()
