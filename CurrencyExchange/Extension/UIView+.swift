@@ -15,6 +15,15 @@ extension UIView {
             v.removeFromSuperview()
         }
     }
+    
+    func pinEdgesToSuperviewEdges() {
+        guard let superview = superview else { return }
+        translatesAutoresizingMaskIntoConstraints = false
+        topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
+    }
 }
 
 @IBDesignable

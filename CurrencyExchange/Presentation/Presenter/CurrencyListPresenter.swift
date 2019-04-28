@@ -40,23 +40,37 @@ class CurrencyListPresenter {
     }
     
     func getCurrencyList() {
-        interactor.getCurrencyList(baseAmount: baseAmount, success: { [weak self] res in
-            self?.currencyList = res
-            self?.view?.setupListCells()
-            self?.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self as Any, selector: #selector(self?.getCurrencyRates), userInfo: nil, repeats: true)
-        }) { [weak self] err in
-            // Show reload button in case initial loading fails
-            self?.view?.showErrorView()
+        DispatchQueue.global(qos: .utility).async {
+            self.interactor.getCurrencyList(baseAmount: self.baseAmount, success: { [weak self] res in
+                self?.currencyList = res
+                self?.view?.reloadHeader()
+                self?.view?.reloadTableView()
+                self?.setUpdateRatesTimer()
+            }) { [weak self] err in
+                // Show reload button in case initial loading fails
+                self?.view?.showErrorView()
+            }
         }
     }
     
+    func setUpdateRatesTimer() {
+        guard timer == nil else {
+            return
+        }
+        weak var weakSelf = self
+        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: weakSelf as Any, selector: #selector(getCurrencyRates), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
+        self.timer = timer
+    }
+    
     @objc func getCurrencyRates() {
-        interactor.getCurrencyRates(success: { [weak self] res in
-            guard let s = self else { return }
-            s.updateCurrencyRates(rates: res)
-            s.view?.updateListCells()
-        }) { _ in
-            // Do nothing for update failure
+        DispatchQueue.global(qos: .utility).async {
+            self.interactor.getCurrencyRates(success: { [weak self] res in
+                self?.updateCurrencyRates(rates: res)
+                self?.view?.updateCells()
+            }) { _ in
+                // Do nothing for update failure
+            }
         }
     }
     

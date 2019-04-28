@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyListCell: UIView {
+class CurrencyListCell: UITableViewCell {
     
     @IBOutlet var iconView: UIImageView!
     @IBOutlet var codeLabel: UILabel!
@@ -21,9 +21,9 @@ class CurrencyListCell: UIView {
     static let maxDicimalPlaces = 3
     static let maxDigit = 9
     
-    var isSelected = false {
+    var isActive = false {
         didSet {
-            textFieldBorder.backgroundColor = isSelected ? UIColor.hexColor(0x0D7AFF) : UIColor.hexColor(0xEFEFF4)
+            textFieldBorder.backgroundColor = isActive ? UIColor.hexColor(0x0D7AFF) : UIColor.hexColor(0xEFEFF4)
         }
     }
     
@@ -32,6 +32,7 @@ class CurrencyListCell: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        selectionStyle = .none
         iconView.backgroundColor = UIColor.lightGray
         iconView.layer.cornerRadius = iconView.bounds.width / 2
     }
@@ -52,7 +53,7 @@ class CurrencyListCell: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        if isSelected { return }
+        if isActive { return }
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
             self.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
         })
@@ -60,7 +61,7 @@ class CurrencyListCell: UIView {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        if isSelected { return }
+        if isActive { return }
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
             self.transform = .identity
         })
@@ -68,7 +69,7 @@ class CurrencyListCell: UIView {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        if isSelected { return }
+        if isActive { return }
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
             self.transform = .identity
         })

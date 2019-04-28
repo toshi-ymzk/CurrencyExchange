@@ -39,6 +39,7 @@
 		99D2476B2247BC76001FFBD4 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2476A2247BC76001FFBD4 /* Double+.swift */; };
 		99EF9A7D2274732100EDC5A8 /* NumberFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EF9A7C2274732100EDC5A8 /* NumberFormatter+.swift */; };
 		99EF9A7F227475E200EDC5A8 /* NumberFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EF9A7E227475E200EDC5A8 /* NumberFormatterTests.swift */; };
+		99EF9A81227554D000EDC5A8 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EF9A80227554D000EDC5A8 /* NSObject+.swift */; };
 		CAAFAD5FE2FA5E04307DCF63 /* Pods_CurrencyExchangeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A73F967F1A2C1770D0997C /* Pods_CurrencyExchangeUITests.framework */; };
 		D31FDE3B476E9A35315C2895 /* Pods_CurrencyExchange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BABDF034B2ED67BCFDA3433 /* Pods_CurrencyExchange.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		99D2476A2247BC76001FFBD4 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		99EF9A7C2274732100EDC5A8 /* NumberFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+.swift"; sourceTree = "<group>"; };
 		99EF9A7E227475E200EDC5A8 /* NumberFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterTests.swift; sourceTree = "<group>"; };
+		99EF9A80227554D000EDC5A8 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		B1FA267F979DE8FB430EA012 /* Pods_Currency_ExchangeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_ExchangeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0D3CCB5BE1BA41CA3D7DDC /* Pods-CurrencyExchangeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchangeUITests.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyExchangeUITests/Pods-CurrencyExchangeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7F50AA209A273047A7BA369 /* Pods-CurrencyExchange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchange.release.xcconfig"; path = "Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				998674A42246203B001C4358 /* Array+.swift */,
 				99AA839B22446DBF004F8811 /* Bundle+.swift */,
 				99D2476A2247BC76001FFBD4 /* Double+.swift */,
+				99EF9A80227554D000EDC5A8 /* NSObject+.swift */,
 				99EF9A7C2274732100EDC5A8 /* NumberFormatter+.swift */,
 				99AABAA8224911A90009300A /* UIColor+.swift */,
 				99C394592244CCF6004B6BC9 /* UIScreen+.swift */,
@@ -606,6 +609,7 @@
 				99C3944A22449757004B6BC9 /* CurrencyListInteractor.swift in Sources */,
 				99D1BFCE2243BA6F002CD9AE /* CurrencyListViewController.swift in Sources */,
 				998674A52246203B001C4358 /* Array+.swift in Sources */,
+				99EF9A81227554D000EDC5A8 /* NSObject+.swift in Sources */,
 				99C39448224496B1004B6BC9 /* ExchangeRatesEntity.swift in Sources */,
 				999C755F22445AB100F18D06 /* CurrencyListPresenter.swift in Sources */,
 				99D2476B2247BC76001FFBD4 /* Double+.swift in Sources */,
@@ -801,6 +805,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 333AB33F4Z;
 				INFOPLIST_FILE = "$(SRCROOT)/CurrencyExchange/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
