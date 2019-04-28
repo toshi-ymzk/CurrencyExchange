@@ -143,10 +143,9 @@ extension CurrencyListViewController: UITextFieldDelegate {
         }
         text = presenter.didChangeText(&text)
         let amount = Double(text) ?? 0
-        let index = textField.superview?.tag ?? 0
         textField.text = formatter.addDecimalComma(str: text)
         textField.textColor = amount == 0 ? UIColor.lightGray : UIColor.hexColor(0x111111)
-        presenter.setBaseAmount(amount: amount, index: index)
+        presenter.setBaseAmount(amount: amount)
         updateCells()
     }
     

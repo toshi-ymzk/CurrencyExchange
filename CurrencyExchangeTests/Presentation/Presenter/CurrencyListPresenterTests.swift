@@ -17,10 +17,14 @@ class CurrencyListPresenterTests: XCTestCase {
         router: CurrencyListRouter(view: nil))
     
     func testGetCurrencyList() {
+        let expect = XCTestExpectation(description: "getCurrencyList")
         presenter.getCurrencyList()
-        
-        XCTAssertTrue(presenter.currencyList.count == 33)
-        XCTAssertNotNil(presenter.timer)
+        DispatchQueue.global(qos: .utility).asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            XCTAssertTrue(self.presenter.currencyList.count == 32)
+            XCTAssertNotNil(self.presenter.timer)
+            expect.fulfill()
+        }
+        wait(for: [expect], timeout: 1)
     }
     
     func testUpdateCurrencyRates() {
@@ -56,12 +60,12 @@ class CurrencyListPresenterTests: XCTestCase {
             CurrencyModel(code: .USD, rate: 1.1684, amount: 1.168),
             CurrencyModel(code: .ZAR, rate: 17.9, amount: 17.9)
         ]
-        presenter.setBaseAmount(amount: 1.16, index: 2)
+        presenter.setBaseAmount(amount: 100)
         let forecasts = [
-            CurrencyModel(code: .EUR, rate: 1, amount: 0.992),
-            CurrencyModel(code: .AUD, rate: 1.6234, amount: 1.61),
-            CurrencyModel(code: .USD, rate: 1.1684, amount: 1.16),
-            CurrencyModel(code: .ZAR, rate: 17.9, amount: 17.756)
+            CurrencyModel(code: .EUR, rate: 1, amount: 100.0),
+            CurrencyModel(code: .AUD, rate: 1.6234, amount: 162.34),
+            CurrencyModel(code: .USD, rate: 1.1684, amount: 116.84),
+            CurrencyModel(code: .ZAR, rate: 17.9, amount: 1789.999)
         ]
         XCTAssertEqual(presenter.currencyList, forecasts)
     }

@@ -16,14 +16,15 @@ class CurrencyListInteractor {
         self.api = api
     }
     
-    func getCurrencyList(baseAmount: Double,
+    func getCurrencyList(base: String,
+                         baseAmount: Double,
                          success: @escaping ([CurrencyModel]) -> Void,
                          failure: @escaping (Error) -> Void) {
         api.getLatestExchangeRates(
-            params: ["base": "EUR"],
+            params: ["base": base],
             success: { entity in
                 var currencyList = [CurrencyModel]()
-                currencyList.append(CurrencyModel(code: .EUR, rate: 1.0, amount: baseAmount))
+                entity.rates[base] = 1.0
                 entity.rates.sorted { $0.0 < $1.0 }.forEach { arg in
                     let (key, value) = arg
                     if let code = CurrencyCode(rawValue: key),
@@ -36,12 +37,14 @@ class CurrencyListInteractor {
         }, failure: failure)
     }
     
-    func getCurrencyRates(success: @escaping ([Double]) -> Void,
+    func getCurrencyRates(base: String,
+                          success: @escaping ([Double]) -> Void,
                           failure: @escaping (Error) -> Void) {
         api.getLatestExchangeRates(
-            params: ["base": "EUR"],
+            params: ["base": base],
             success: { entity in
-                var rates: [Double] = [1.0]
+                var rates = [Double]()
+                entity.rates[base] = 1.0
                 entity.rates.sorted { $0.0 < $1.0 }.forEach { arg in
                     let (_, value) = arg
                     if let rate = value as? Double {

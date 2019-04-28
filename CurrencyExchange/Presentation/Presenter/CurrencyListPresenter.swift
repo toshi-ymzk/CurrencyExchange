@@ -41,7 +41,7 @@ class CurrencyListPresenter {
     
     func getCurrencyList() {
         DispatchQueue.global(qos: .utility).async {
-            self.interactor.getCurrencyList(baseAmount: self.baseAmount, success: { [weak self] res in
+            self.interactor.getCurrencyList(base: "AUD", baseAmount: self.baseAmount, success: { [weak self] res in
                 self?.currencyList = res
                 self?.view?.reloadHeader()
                 self?.view?.reloadTableView()
@@ -64,8 +64,11 @@ class CurrencyListPresenter {
     }
     
     @objc func getCurrencyRates() {
+        guard let selectedCurrency = currencyList[safe: selectedIndex] else {
+            return
+        }
         DispatchQueue.global(qos: .utility).async {
-            self.interactor.getCurrencyRates(success: { [weak self] res in
+            self.interactor.getCurrencyRates(base: selectedCurrency.code.rawValue, success: { [weak self] res in
                 self?.updateCurrencyRates(rates: res)
                 self?.view?.updateCells()
             }) { _ in
@@ -86,11 +89,10 @@ class CurrencyListPresenter {
         }
     }
     
-    func setBaseAmount(amount: Double, index: Int) {
-        selectedIndex = index
-        guard let currency = currencyList[safe: index] else { return }
+    func setBaseAmount(amount: Double) {
+        guard let currency = currencyList[safe: selectedIndex] else { return }
         currency.amount = amount
-        baseAmount = (amount / currency.rate).truncate(CurrencyModel.maxDicimalPlaces)
+        baseAmount = amount
     }
     
     func didChangeText(_ text: inout String) -> String {

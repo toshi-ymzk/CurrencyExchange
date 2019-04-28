@@ -14,7 +14,7 @@ class CurrencyListInteractorTests: XCTestCase {
     let interactor = CurrencyListInteractor(api: RevolutAPIStub())
     
     func testGetCurrencyList() {
-        interactor.getCurrencyList(baseAmount: 1, success: { res in
+        interactor.getCurrencyList(base: "EUR", baseAmount: 1, success: { res in
             XCTAssertTrue(res.count == 33)
             let result = [
                 res[0],
@@ -23,8 +23,8 @@ class CurrencyListInteractorTests: XCTestCase {
                 res[res.count - 1]
             ]
             let forecasts = [
-                CurrencyModel(code: .EUR, rate: 1, amount: 1),
                 CurrencyModel(code: .AUD, rate: 1.6234, amount: 1.623),
+                CurrencyModel(code: .BGN, rate: 1.9642, amount: 1.964),
                 CurrencyModel(code: .USD, rate: 1.1684, amount: 1.168),
                 CurrencyModel(code: .ZAR, rate: 17.9, amount: 17.9)
             ]
@@ -35,7 +35,7 @@ class CurrencyListInteractorTests: XCTestCase {
     }
     
     func testGetCurrencyRates() {
-        interactor.getCurrencyRates(success: { res in
+        interactor.getCurrencyRates(base: "EUR", success: { res in
             XCTAssertTrue(res.count == 33)
             let result = [
                 res[0],
@@ -44,8 +44,8 @@ class CurrencyListInteractorTests: XCTestCase {
                 res[res.count - 1]
             ]
             let forecasts = [
-                1,
                 1.6234,
+                1.9642,
                 1.1684,
                 17.9,
             ]
