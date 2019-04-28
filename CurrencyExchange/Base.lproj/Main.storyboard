@@ -18,6 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5X-AI-nC2" userLabel="Navigation View">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ8-Mi-Viq">
+                                        <rect key="frame" x="148.66666666666666" y="12.333333333333334" width="78" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="KQ8-Mi-Viq" firstAttribute="centerY" secondItem="u5X-AI-nC2" secondAttribute="centerY" id="DlK-2e-qBH"/>
+                                    <constraint firstItem="KQ8-Mi-Viq" firstAttribute="centerX" secondItem="u5X-AI-nC2" secondAttribute="centerX" id="JBs-4O-dMx"/>
+                                    <constraint firstAttribute="height" constant="44" id="PJC-KN-fvS"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O6c-6M-Bk7">
                                 <rect key="frame" x="0.0" y="189" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,23 +60,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Vay-eE-wwJ" secondAttribute="trailing" id="FXy-bD-rWY"/>
                                     <constraint firstItem="Vay-eE-wwJ" firstAttribute="leading" secondItem="aRC-Zn-8EA" secondAttribute="leading" id="owB-8K-sI6"/>
                                     <constraint firstAttribute="bottom" secondItem="Vay-eE-wwJ" secondAttribute="bottom" id="y00-pr-ALe"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5X-AI-nC2" userLabel="Navigation View">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ8-Mi-Viq">
-                                        <rect key="frame" x="148.66666666666666" y="12.333333333333334" width="78" height="19.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="KQ8-Mi-Viq" firstAttribute="centerY" secondItem="u5X-AI-nC2" secondAttribute="centerY" id="DlK-2e-qBH"/>
-                                    <constraint firstItem="KQ8-Mi-Viq" firstAttribute="centerX" secondItem="u5X-AI-nC2" secondAttribute="centerX" id="JBs-4O-dMx"/>
-                                    <constraint firstAttribute="height" constant="44" id="PJC-KN-fvS"/>
                                 </constraints>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIc-rU-t0s">

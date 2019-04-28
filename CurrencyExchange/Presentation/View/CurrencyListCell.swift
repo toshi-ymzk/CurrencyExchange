@@ -24,6 +24,12 @@ class CurrencyListCell: UITableViewCell {
     var isActive = false {
         didSet {
             textFieldBorder.backgroundColor = isActive ? UIColor.hexColor(0x0D7AFF) : UIColor.hexColor(0xEFEFF4)
+            if isActive {
+                textFieldBorder.transform = CGAffineTransform(scaleX: 0, y: 1)
+                UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseInOut, animations: {
+                    self.textFieldBorder.transform = .identity
+                })
+            }
         }
     }
     

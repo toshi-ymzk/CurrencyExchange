@@ -103,7 +103,11 @@ class CurrencyListViewController: UIViewController {
         })
         animateCell.layout(currency: selectedCurrency)
         animateCell.frame = cell.convert(cell.bounds, to: self.headerView)
-        self.headerView.addSubview(animateCell)
+        animateCell.layer.shadowColor = UIColor.black.cgColor
+        animateCell.layer.shadowOffset = CGSize(width: 4, height: 4)
+        animateCell.layer.shadowRadius = 8
+        animateCell.layer.shadowOpacity = 0.1
+        headerView.addSubview(animateCell)
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.85, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             animateCell.frame.origin.y = 0
         }, completion: { _ in
