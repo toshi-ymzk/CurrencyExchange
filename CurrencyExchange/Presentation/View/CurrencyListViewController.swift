@@ -51,6 +51,7 @@ class CurrencyListViewController: UIViewController {
             headerCell.pinEdgesToSuperviewEdges()
             headerCell.amountTextField.delegate = self
             headerCell.amountTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
+            headerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showKeyboard)))
         }
     }
     
@@ -127,7 +128,11 @@ class CurrencyListViewController: UIViewController {
         presenter.loadData()
     }
     
-    @objc private func resignTextField() {
+    @objc private func showKeyboard() {
+        headerCell?.amountTextField.becomeFirstResponder()
+    }
+    
+    @objc private func hideKeyboard() {
         headerCell?.amountTextField.resignFirstResponder()
     }
 }
@@ -135,7 +140,7 @@ class CurrencyListViewController: UIViewController {
 extension CurrencyListViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        resignTextField()
+        hideKeyboard()
     }
 }
 
