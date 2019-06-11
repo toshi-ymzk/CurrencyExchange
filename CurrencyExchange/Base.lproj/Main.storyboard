@@ -55,6 +55,7 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="HeaderView"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="4IT-fq-HeC"/>
                                     <constraint firstAttribute="trailing" secondItem="Vay-eE-wwJ" secondAttribute="trailing" id="FXy-bD-rWY"/>

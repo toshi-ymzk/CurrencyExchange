@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		633A432F2DFD304B4DB59CF3 /* Pods_CurrencyExchangeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6822BAC6C33C67988D6CF73D /* Pods_CurrencyExchangeTests.framework */; };
+		990951C822AFF80300DD9947 /* CurrencyListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990951C722AFF80300DD9947 /* CurrencyListViewControllerTests.swift */; };
 		9912D7C922479A6100E5CC13 /* CurrencyListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9912D7C822479A6100E5CC13 /* CurrencyListRouter.swift */; };
 		998674A52246203B001C4358 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998674A42246203B001C4358 /* Array+.swift */; };
 		999C755F22445AB100F18D06 /* CurrencyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999C755E22445AB100F18D06 /* CurrencyListPresenter.swift */; };
@@ -70,6 +71,7 @@
 		7BABDF034B2ED67BCFDA3433 /* Pods_CurrencyExchange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrencyExchange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		847BC55F11FE0F849D3DD11D /* Pods-CurrencyExchangeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyExchangeUITests.release.xcconfig"; path = "Target Support Files/Pods-CurrencyExchangeUITests/Pods-CurrencyExchangeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8F69CF64671FE4A6A2595122 /* Pods_Currency_ExchangeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Currency_ExchangeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		990951C722AFF80300DD9947 /* CurrencyListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewControllerTests.swift; sourceTree = "<group>"; };
 		9912D7C822479A6100E5CC13 /* CurrencyListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListRouter.swift; sourceTree = "<group>"; };
 		998674A42246203B001C4358 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		999C755E22445AB100F18D06 /* CurrencyListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenter.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				99D1BFEB2243BA72002CD9AE /* CurrencyExchangeUITests.swift */,
+				990951C722AFF80300DD9947 /* CurrencyListViewControllerTests.swift */,
 				99D1BFED2243BA72002CD9AE /* Info.plist */,
 			);
 			path = CurrencyExchangeUITests;
@@ -423,6 +426,7 @@
 				99D1BFE32243BA72002CD9AE /* Sources */,
 				99D1BFE42243BA72002CD9AE /* Frameworks */,
 				99D1BFE52243BA72002CD9AE /* Resources */,
+				990951C622AF545700DD9947 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -551,6 +555,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		990951C622AF545700DD9947 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CurrencyExchange/Pods-CurrencyExchange-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A748A86D3AC2A444BEAB9DE9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -645,6 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99D1BFEC2243BA72002CD9AE /* CurrencyExchangeUITests.swift in Sources */,
+				990951C822AFF80300DD9947 /* CurrencyListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
